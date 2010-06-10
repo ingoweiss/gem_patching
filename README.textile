@@ -1,0 +1,17 @@
+h1. gem_patching
+
+gem_patching provides a mechanism for marking blocks of code as patches for specific versions of a specific gem. If the targeted gem is updated and it's version does not match the targeted version any more, an exception is raised, notifying developers to evaluate whether the patch is still needed for the new version:
+
+bc(ruby)..
+Gem.patching('cucumber', '0.8.0') do
+  # your code patching cucumber '0.8.0'
+end
+# this will raise the following exception if cucumber is updated:
+# Attempt to apply patch targeting version '0.8.0' of 'cucumber', but active version is '0.8.1'
+
+h3. Installation
+
+gem install gem_patching
+
+
+Copyright (c) 2010 Ingo Weiss, released under the MIT license
